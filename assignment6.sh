@@ -58,3 +58,75 @@ max_wordcount=$wordcount
 fi
 done
 
+echo -e "Least Repetitive Word: \n'$max_wordcount', used $max times"
+
+
+
+
+for wordcount in $(< "$file")
+          do
+
+
+if echo "$wordcount" | grep -Eqi '^a';
+then
+count=$((count+1))
+fi
+done
+echo "Frequency of - Starts with 'a/A'' and ends with any letter:"
+echo "$count"
+
+
+
+for wordcount in $(< "$file")
+          do
+
+
+if echo "$wordcount" | grep -Eqi '^d.*d$';
+then
+count=$((count+1))
+fi
+done
+
+
+
+echo "Frequency of - Starts with 'd/D'' and ends with  'd/D':"
+echo "$count"
+
+
+
+
+
+for wordcount in $(< "$file")
+          do
+
+
+if echo "$wordcount" | grep -Eq '^[0-9]*$';
+then
+count=$((count+1))
+fi
+done
+echo "Frequency of Numeric Words:"
+echo "$count"
+
+
+
+
+for wordcount in $(< "$file")
+          do
+
+
+if (echo "$wordcount" | grep -Eq '^[0-9a-z]*$') && !(echo "$wordcount" | grep -Eqi '^[a-z]*$') && !(echo "$wordwordcount" | grep -Eq '^[0-9]*$');
+then
+
+
+count=$((count+1))
+fi
+done
+
+
+
+echo "Frequency of Alphanumeric Words:"
+echo "$count"
+
+
+
